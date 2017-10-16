@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d7864fea7a9a14199f91c1892fa7ba, type: 3}
+  m_Name: SQUIRTLE
+  m_EditorClassIdentifier: 
+  pokemonName: Squirtle
+  index: 1
+  dexnum: 3
+  height: 0.5
+  weight: 9
+  frontSprite: {fileID: 2800000, guid: b8a77bdbcd91dbf4a889fb4125601d82, type: 3}
+  backSprite: {fileID: 2800000, guid: ef2eb135abeef0f4d91efea2967deb35, type: 3}
+  miniSprite: {fileID: 2800000, guid: bf5d52f1131b59346a612ae6c757cf29, type: 3}
+  type1: {fileID: 11400000, guid: 7087819cf2fe1b94896e5e46bdd68819, type: 2}
+  type2: {fileID: 0}
+  statsBase: 2c000000300000004100000032000000400000002b000000
