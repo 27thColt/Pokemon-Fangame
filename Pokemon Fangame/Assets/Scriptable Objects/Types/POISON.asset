@@ -13,5 +13,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Poison
   index: 7
-  offensives: []
-  defensives: []
+  offensives:
+  - 1
+  - 2
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0.5
+  - 1
+  - 1
+  - 0.5
+  - 0.5
+  - 0
+  - 1
+  - 1
+  - 0.5
+  - 2
+  - 1
+  defensives:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  offensiveSE: 000100000000000000000000000000000100
+  offensiveNVE: 000000000000000100000101000000010000
+  offensiveNE: 000000000000000000000000010000000000

@@ -13,5 +13,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Electric
   index: 4
-  offensives: []
-  defensives: []
+  offensives:
+  - 1
+  - 0.5
+  - 1
+  - 2
+  - 0.5
+  - 1
+  - 1
+  - 1
+  - 2
+  - 1
+  - 0
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0.5
+  defensives:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  offensiveSE: 000000010000000001000000000000000000
+  offensiveNVE: 000100000100000000000000000000000001
+  offensiveNE: 000000000000000000000100000000000000

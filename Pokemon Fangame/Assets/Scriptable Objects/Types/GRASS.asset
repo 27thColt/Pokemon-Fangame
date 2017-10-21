@@ -13,5 +13,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Grass
   index: 1
-  offensives: []
-  defensives: []
+  offensives:
+  - 1
+  - 0.5
+  - 0.5
+  - 2
+  - 1
+  - 1
+  - 1
+  - 0.5
+  - 0.5
+  - 1
+  - 2
+  - 2
+  - 0.5
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0.5
+  defensives:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  offensiveSE: 000000010000000000000101000000000000
+  offensiveNVE: 000101000000000101000000010000000001
+  offensiveNE: 000000000000000000000000000000000000

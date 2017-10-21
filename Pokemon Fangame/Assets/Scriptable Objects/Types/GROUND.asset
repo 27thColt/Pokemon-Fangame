@@ -13,5 +13,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Ground
   index: 10
-  offensives: []
-  defensives: []
+  offensives:
+  - 1
+  - 0.5
+  - 2
+  - 1
+  - 2
+  - 1
+  - 0.5
+  - 2
+  - 0
+  - 1
+  - 1
+  - 2
+  - 2
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  defensives:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  offensiveSE: 000001000100000100000001010000000000
+  offensiveNVE: 000100000000010000000000000000000000
+  offensiveNE: 000000000000000001000000000000000000

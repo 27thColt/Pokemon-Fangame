@@ -13,7 +13,7 @@ public class PokemonObject : MonoBehaviour {
     //HP - Atk - Def - Spa - Spd - Spe
     public int[] statsEV = { 0, 0, 0, 0, 0, 0 };
     public int[] statsIV = { 0, 0, 0, 0, 0, 0 };
-    public int[] statCalc = { 0, 0, 0, 0, 0, 0 };
+    public float[] statCalc = new float[6] { 0, 0, 0, 0, 0, 0 };
 
 
     public int level = 1;
@@ -23,7 +23,6 @@ public class PokemonObject : MonoBehaviour {
 
     void Start () {
         calculateStats();
-        Debug.Log(statCalc[0]);
     }
 
     void Update() {
@@ -34,8 +33,8 @@ public class PokemonObject : MonoBehaviour {
         for (int i = 0; i < statCalc.Length; i++) {
             if (i == 0) {
                 //HP has a different stat calculation
-                statCalc[i] = (((2 * species.statsBase[i] + statsIV[i] + (statsEV[i] / 4)) * level) / 100) + level + 10;
-                battleHP = statCalc[i];
+                statCalc[i] = Mathf.RoundToInt((((2 * species.statsBase[i] + statsIV[i] + (statsEV[i] / 4)) * level) / 100) + level + 10);
+                battleHP = (int)statCalc[i];
             } else {
                 statCalc[i] = Mathf.RoundToInt(((((2 * species.statsBase[i] + statsIV[i] + (statsEV[i] / 4)) * level) / 100) + 5) * nat.statModifiers[i]);
             }

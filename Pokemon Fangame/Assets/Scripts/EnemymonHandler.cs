@@ -50,8 +50,11 @@ public class EnemymonHandler : MonoBehaviour {
         displayHP.text = "HP: " + eo.battleHP.ToString() + "/" + eo.statCalc[0].ToString();
 
         if (bh.phase == 2) {
+            Debug.Log("Automatic Enemy Move Selection Initiated");
             bh.eoSelectedMove = Random.Range(0, totalSelectableMoves);
+            Debug.Log("Selected Move: " + eo.moves[bh.eoSelectedMove].moveName + " with move index of " + bh.eoSelectedMove);
             bh.phase = 3;
+            Debug.Log("Battle Phase: " + bh.phase);
         }
     }
 }

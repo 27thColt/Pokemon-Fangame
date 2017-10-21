@@ -9,8 +9,14 @@ public class Type : ScriptableObject {
     public int index = 0;
 
     // Refers to the index
-    public float[] offensives;
-    public float[] defensives;
+    public float[] offensives = new float[18] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    public float[] defensives = new float[18] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+
+
+    //for the editor
+    public bool[] offensiveSE = new bool[18];
+    public bool[] offensiveNVE = new bool[18];
+    public bool[] offensiveNE = new bool[18];
 }
 
     /* INDEXES

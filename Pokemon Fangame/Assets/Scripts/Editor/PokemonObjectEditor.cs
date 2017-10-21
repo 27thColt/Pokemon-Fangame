@@ -96,7 +96,7 @@ public class PokemonObjectEditor : Editor {
             }
 
             if (pkmn.nat.statModifiers[i] == 1.1f) {
-                GUILayout.Label("Buffed Stat: " + x);
+                GUILayout.Label("Buffed Stat: " + x);   
             }
             if (pkmn.nat.statModifiers[i] == 0.9f) {
                 GUILayout.Label("Nerfed Stat: " + x);
@@ -200,7 +200,7 @@ public class PokemonObjectEditor : Editor {
 
         GUILayout.Label("Stat Total: " + (pkmn.statsEV[0] + pkmn.statsEV[1] + pkmn.statsEV[2] + pkmn.statsEV[3] + pkmn.statsEV[4] + pkmn.statsEV[5]).ToString());
         if (pkmn.statsEV[0] + pkmn.statsEV[1] + pkmn.statsEV[2] + pkmn.statsEV[3] + pkmn.statsEV[4] + pkmn.statsEV[5] > 510) {
-            GUILayout.Label("EVs exceed stat total of 510!", EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox("EVs exceed stat total of 510!", MessageType.Error);
         }
 
         /* 

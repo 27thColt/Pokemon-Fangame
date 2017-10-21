@@ -364,13 +364,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183c3f2a46d49ea4c8246e5ba25d42b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  species: {fileID: 11400000, guid: 975c438832992c6408944fb2e49ded14, type: 2}
+  species: {fileID: 11400000, guid: 439ad0071a922d54b994d272e93be275, type: 2}
   nat: {fileID: 11400000, guid: f9abef1dce33e454587b4f5c1482ec9d, type: 2}
-  statsEV: 000000000000000000000000fc00000006000000fc000000
+  statsEV: 060000000000000000000000fc000000fc00000000000000
   statsIV: 000000000000000000000000000000000000000000000000
-  statCalc: b40000006800000055000000b90000006a000000f8000000
+  statCalc:
+  - 181
+  - 104
+  - 85
+  - 185
+  - 168
+  - 185
   level: 100
-  battleHP: 180
+  battleHP: 181
   moves:
   - {fileID: 11400000, guid: 3908ae7a76492d342b9a4fed7103dc09, type: 2}
   - {fileID: 0}
@@ -1430,14 +1436,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   species: {fileID: 11400000, guid: 160a408e84a436d4f95bc5562c88316e, type: 2}
-  nat: {fileID: 11400000, guid: be394c8ced9f599418feeca4bc8058e1, type: 2}
-  statsEV: fc000000000000000000000006000000fc00000000000000
+  nat: {fileID: 11400000, guid: 588effc9b74b3684ab25c66bc8146e24, type: 2}
+  statsEV: 00000000000000008d00000075000000fc00000000000000
   statsIV: 000000000000000000000000000000000000000000000000
-  statCalc: 050100005b000000870000006a000000d80000005b000000
+  statCalc:
+  - 198
+  - 101
+  - 170
+  - 147
+  - 176
+  - 91
   level: 100
-  battleHP: 261
+  battleHP: 198
   moves:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3908ae7a76492d342b9a4fed7103dc09, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1630,8 +1642,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862156650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 250.6, y: 529.6, z: 0.05786542}
-  m_LocalScale: {x: 0.58375, y: 0.58375, z: 0.58375}
+  m_LocalPosition: {x: 430.6, y: 228.6, z: 0.05786542}
+  m_LocalScale: {x: 1.03375, y: 1.03375, z: 1.03375}
   m_Children:
   - {fileID: 1555415650}
   - {fileID: 1520738340}

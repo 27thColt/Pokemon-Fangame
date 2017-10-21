@@ -19,6 +19,6 @@ MonoBehaviour:
   frontSprite: {fileID: 2800000, guid: b8a77bdbcd91dbf4a889fb4125601d82, type: 3}
   backSprite: {fileID: 2800000, guid: ef2eb135abeef0f4d91efea2967deb35, type: 3}
   miniSprite: {fileID: 2800000, guid: bf5d52f1131b59346a612ae6c757cf29, type: 3}
-  type1: {fileID: 11400000, guid: 7087819cf2fe1b94896e5e46bdd68819, type: 2}
+  type1: {fileID: 11400000, guid: 9460932f13a32dd4393a7f31c0fc8ded, type: 2}
   type2: {fileID: 0}
   statsBase: 2c000000300000004100000032000000400000002b000000
