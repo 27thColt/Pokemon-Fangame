@@ -12,7 +12,7 @@ public class PlayermonHandler : MonoBehaviour {
     private PokemonObject po;
 
     public GameObject enemyMon;
-    private PokemonObject eo;
+    //private PokemonObject eo;
 
     public GameObject battleObject;
     private BattleHandler bh;
@@ -27,7 +27,7 @@ public class PlayermonHandler : MonoBehaviour {
 
     void Start () {
         po = gameObject.GetComponent<PokemonObject>();
-        eo = enemyMon.GetComponent<PokemonObject>();
+        //eo = enemyMon.GetComponent<PokemonObject>();
 
         bh = battleObject.GetComponent<BattleHandler>();
 
@@ -42,21 +42,21 @@ public class PlayermonHandler : MonoBehaviour {
          */
         moveB1.GetComponentInChildren<Text>().text = po.moves[0].moveName;
 
-        if (bh.phase == 1 && po.moves[1] == null) {
+        if (bh.currentPhase == BattleHandler.battlePhase.PLAYER_ATKSELECTION && po.moves[1] == null) {
             moveB2.interactable = false;
         } else {
             moveB2.GetComponentInChildren<Text>().text = po.moves[1].moveName;
         }
 
 
-        if (bh.phase == 1 && po.moves[2] == null) {
+        if (bh.currentPhase == BattleHandler.battlePhase.PLAYER_ATKSELECTION && po.moves[2] == null) {
             moveB3.interactable = false;
         } else {
             moveB3.GetComponentInChildren<Text>().text = po.moves[2].moveName;
         }
 
 
-        if (bh.phase == 1 && po.moves[3] == null) {
+        if (bh.currentPhase == BattleHandler.battlePhase.PLAYER_ATKSELECTION && po.moves[3] == null) {
             moveB4.interactable = false; 
         } else {
             moveB4.GetComponentInChildren<Text>().text = po.moves[3].moveName;
@@ -74,39 +74,39 @@ public class PlayermonHandler : MonoBehaviour {
 
 
     void Update() {
-        if (bh.phase == 1) {
+        if (bh.currentPhase == BattleHandler.battlePhase.PLAYER_ATKSELECTION) {
             moveB1.interactable = true;
         } else {
             moveB1.interactable = false;
         }
 
-        if (bh.phase == 1 && po.moves[1] != null) {
+        if (bh.currentPhase == BattleHandler.battlePhase.PLAYER_ATKSELECTION && po.moves[1] != null) {
             moveB2.interactable = true;
         } else {
             moveB2.interactable = false;
         }
 
 
-        if (bh.phase == 1 && po.moves[2] != null) {
+        if (bh.currentPhase == BattleHandler.battlePhase.PLAYER_ATKSELECTION && po.moves[2] != null) {
             moveB3.interactable = true;
         } else {
             moveB3.interactable = false;
         }
 
 
-        if (bh.phase == 1 && po.moves[3] != null) {
+        if (bh.currentPhase == BattleHandler.battlePhase.PLAYER_ATKSELECTION && po.moves[3] != null) {
             moveB4.interactable = true;
         } else {
             moveB4.interactable = false;
         }
 
-        displayHP.text = "HP: " + po.battleHP.ToString() + "/" + po.statCalc[0].ToString();
+        displayHP.text = "HP: " + po.currentHP.ToString() + "/" + po.statCalc[0].ToString();
     }
 
     public void selectMove(int moveNum) {
         bh.poSelectedMove = moveNum;
-        bh.phase = 2;
-        Debug.Log("Battle Phase: " + bh.phase);
+        bh.currentPhase = BattleHandler.battlePhase.ENEMY_ATKSELECTION;
+        Debug.Log("Battle Phase: " + (int)bh.currentPhase);
     }
 
     

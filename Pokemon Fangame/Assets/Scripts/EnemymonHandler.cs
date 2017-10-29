@@ -12,7 +12,7 @@ public class EnemymonHandler : MonoBehaviour {
     private PokemonObject eo;
 
     public GameObject playerMon;
-    private PokemonObject po;
+    //private PokemonObject po;
 
     public GameObject battleObject;
     private BattleHandler bh;
@@ -24,7 +24,7 @@ public class EnemymonHandler : MonoBehaviour {
 
     void Start() {
         eo = gameObject.GetComponent<PokemonObject>();
-        po = playerMon.GetComponent<PokemonObject>();
+        //po = playerMon.GetComponent<PokemonObject>();
 
         bh = battleObject.GetComponent<BattleHandler>();
 
@@ -47,14 +47,14 @@ public class EnemymonHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        displayHP.text = "HP: " + eo.battleHP.ToString() + "/" + eo.statCalc[0].ToString();
+        displayHP.text = "HP: " + eo.currentHP.ToString() + "/" + eo.statCalc[0].ToString();
 
-        if (bh.phase == 2) {
+        if (bh.currentPhase == BattleHandler.battlePhase.ENEMY_ATKSELECTION) {
             Debug.Log("Automatic Enemy Move Selection Initiated");
             bh.eoSelectedMove = Random.Range(0, totalSelectableMoves);
             Debug.Log("Selected Move: " + eo.moves[bh.eoSelectedMove].moveName + " with move index of " + bh.eoSelectedMove);
-            bh.phase = 3;
-            Debug.Log("Battle Phase: " + bh.phase);
+            bh.currentPhase = BattleHandler.battlePhase.ATKEXECUTION;
+            Debug.Log("Battle Phase: " + (int)bh.currentPhase);
         }
     }
 }

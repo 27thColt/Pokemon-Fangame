@@ -17,7 +17,7 @@ public class PokemonObject : MonoBehaviour {
 
 
     public int level = 1;
-    public int battleHP;
+    public int currentHP;
 
     public Move[] moves = new Move[4];
 
@@ -34,7 +34,7 @@ public class PokemonObject : MonoBehaviour {
             if (i == 0) {
                 //HP has a different stat calculation
                 statCalc[i] = Mathf.RoundToInt((((2 * species.statsBase[i] + statsIV[i] + (statsEV[i] / 4)) * level) / 100) + level + 10);
-                battleHP = (int)statCalc[i];
+                currentHP = (int)statCalc[i];
             } else {
                 statCalc[i] = Mathf.RoundToInt(((((2 * species.statsBase[i] + statsIV[i] + (statsEV[i] / 4)) * level) / 100) + 5) * nat.statModifiers[i]);
             }

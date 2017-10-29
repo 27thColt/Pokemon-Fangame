@@ -8,33 +8,48 @@ public class BattleHandler : MonoBehaviour {
     public GameObject enemyMon;
 
     private PokemonObject po;
-    private PlayermonHandler ph;
+    //private PlayermonHandler ph;
 
     private PokemonObject eo;
 
     public int poSelectedMove;
     public int eoSelectedMove;
 
-    public int phase = 1;
-    // 1 - Attack Selection, 2 - Enemy Attack Selection, 3 - Attack Execution
+    public enum battlePhase {
+        PLAYER_ATKSELECTION,
+        ENEMY_ATKSELECTION,
+        ATKEXECUTION
+    };
+
+    public battlePhase currentPhase;
+
+    int atkpoDmg; //Damage of player pokemon
+    int atkeoDmg; //Damage of enemy pokemon
+
+    float atkExTimer = 5;
 
     void Start() {
-        Debug.Log("Battle Phase: " + phase);
+        Debug.Log("Battle Phase: " + (int)currentPhase);
 
         po = playerMon.GetComponent<PokemonObject>();
-        ph = playerMon.GetComponent<PlayermonHandler>();
+        //ph = playerMon.GetComponent<PlayermonHandler>();
 
         eo = enemyMon.GetComponent<PokemonObject>();
 
 
 
-        Debug.Log("Battle Phase: " + phase);
+        Debug.Log("Battle Phase: " + (int)currentPhase);
     }
 
     void Update() {
-        if (phase == 3) {
-            StartCoroutine(battleSequence());
+        if (currentPhase == battlePhase.ATKEXECUTION) {
+            atkpoDmg = calculateDamage(po, eo, poSelectedMove); 
+            atkeoDmg = calculateDamage(eo, po, eoSelectedMove);
+            Debug.Log("Player Damage: " + atkpoDmg);
+            Debug.Log("Enemy Damage: " + atkeoDmg);
 
+            StartCoroutine(battleSequence());
+            currentPhase = battlePhase.PLAYER_ATKSELECTION;
         }
     }
 
@@ -68,20 +83,16 @@ public class BattleHandler : MonoBehaviour {
                 dmgModifier *= 1.5f;
         }
 
-        Debug.Log(dmgModifier);
-
         /*
          * Calculation for Damage 
          */
         if (atk.moves[selectedMove].physical == true) {
             Debug.Log("Damage = ((((((2 * " + atk.level + ") / 5) + 2)" + " * " + atk.moves[selectedMove].damage + " * (" + atk.statCalc[1] + " / " + def.statCalc[2] + ")) / 50) + 2) * " + dmgModifier);
             damage = Mathf.RoundToInt(((((((2 * atk.level) / 5) + 2) * atk.moves[selectedMove].damage * (atk.statCalc[1] / def.statCalc[2])) / 50) + 2) * dmgModifier);
-            Debug.Log(damage);
             return (int)damage;
         } else if (atk.moves[selectedMove].special == true) {
             Debug.Log("Damage = ((((((2 * " + atk.level + ") / 5) + 2)" + " * " + atk.moves[selectedMove].damage + " * (" + atk.statCalc[3] + " / " + def.statCalc[4] + ")) / 50) + 2) * " + dmgModifier);
             damage = Mathf.RoundToInt(((((((2 * atk.level) / 5) + 2) * atk.moves[selectedMove].damage * (atk.statCalc[3] / def.statCalc[4])) / 50) + 2) * dmgModifier);
-            Debug.Log(damage);
             return (int)damage;
         } else {
             return 0;
@@ -90,66 +101,45 @@ public class BattleHandler : MonoBehaviour {
 
     }
 
-    private IEnumerator decreaseHP(int damage, PokemonObject atk, PokemonObject def) {
-        int x = 0;
-        while (x < damage && atk.battleHP > 0) {
-            x++;
-            def.battleHP--;
-            yield return new WaitForSeconds(5 / damage);
-            if (def.battleHP <= 0) {
+    private IEnumerator decreaseHP(int damage, PokemonObject def) {
+        int x = def.currentHP;
+        while (true) {
+            def.currentHP--;
+            yield return new WaitForSeconds(4 / damage);
+
+
+            if (def.currentHP == x - damage || def.currentHP <= 0) {
                 break;
             }
         }
+        
     }
 
     private IEnumerator battleSequence() {
-        int atk1Dmg; //Damage of the first pokemon
-        int atk2Dmg; //Damage of the second pokemon
-
         //If the player is faster than the enemy
         if (po.statCalc[5] > eo.statCalc[5]) {
-            atk1Dmg = calculateDamage(po, eo, poSelectedMove);
-            atk2Dmg = calculateDamage(eo, po, eoSelectedMove);
+            yield return StartCoroutine(decreaseHP(atkpoDmg, eo));
+            yield return new WaitForSeconds(0.5f);
+            yield return StartCoroutine(decreaseHP(atkeoDmg, po));
 
-            yield return StartCoroutine(decreaseHP(atk1Dmg, po, eo));
-            yield return new WaitForSeconds(1);
-            yield return StartCoroutine(decreaseHP(atk2Dmg, eo, po));
-
-            //phase = 1;
             //If the enemy is faster than the player
-        } else if (eo.statCalc[5] > po.statCalc[5]) {
-            atk1Dmg = calculateDamage(eo, po, eoSelectedMove);
-            atk2Dmg = calculateDamage(po, eo, poSelectedMove);
+        } else if (po.statCalc[5] < eo.statCalc[5]) {
+            yield return StartCoroutine(decreaseHP(atkeoDmg, po));
+            yield return new WaitForSeconds(0.5f);
+            yield return StartCoroutine(decreaseHP(atkpoDmg, eo));
 
-            yield return StartCoroutine(decreaseHP(atk2Dmg, eo, po));
-            yield return new WaitForSeconds(1);
-            yield return StartCoroutine(decreaseHP(atk1Dmg, po, eo));
-
-            //phase = 1;
-            //If both pokemon have equal speed, 50% chance of either going first
-        } else if (eo.statCalc[5] == po.statCalc[5]) {
+            //If both the enemy and player have equal speed
+        } else if (po.statCalc[5] == eo.statCalc[5]) {
+            //50% of either pokemon going first
             if (Random.Range(1, 11) > 5) {
-                atk1Dmg = calculateDamage(eo, po, eoSelectedMove);
-                atk2Dmg = calculateDamage(po, eo, poSelectedMove);
-
-                yield return StartCoroutine(decreaseHP(atk2Dmg, eo, po));
-                yield return new WaitForSeconds(1);
-                yield return StartCoroutine(decreaseHP(atk1Dmg, po, eo));
-
-                phase = 1;
+                yield return StartCoroutine(decreaseHP(atkpoDmg, eo));
+                yield return new WaitForSeconds(0.5f);
+                yield return StartCoroutine(decreaseHP(atkeoDmg, po));
             } else {
-                atk1Dmg = calculateDamage(po, eo, poSelectedMove);
-                atk2Dmg = calculateDamage(eo, po, eoSelectedMove);
-
-                yield return StartCoroutine(decreaseHP(atk1Dmg, po, eo));
-                yield return new WaitForSeconds(1);
-                yield return StartCoroutine(decreaseHP(atk2Dmg, eo, po));
-
-                //phase = 1;
+                yield return StartCoroutine(decreaseHP(atkeoDmg, po));
+                yield return new WaitForSeconds(0.5f);
+                yield return StartCoroutine(decreaseHP(atkpoDmg, eo));
             }
-        } else {
-            yield return 0;
-            //phase = 1;
         }
     }
 }

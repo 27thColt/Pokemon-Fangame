@@ -213,7 +213,10 @@ public class PokemonObjectEditor : Editor {
 
         GUILayout.Space(5);
 
-        pkmn.calculateStats();
+        if (GUILayout.Button("Calculate Stats")) {
+            pkmn.calculateStats();
+        }
+        
         EditorGUILayout.LabelField("HP: ", pkmn.statCalc[0].ToString());
         EditorGUILayout.LabelField("Attack: ", pkmn.statCalc[1].ToString());
         EditorGUILayout.LabelField("Defense: ", pkmn.statCalc[2].ToString());
@@ -240,7 +243,7 @@ public class PokemonObjectEditor : Editor {
 
 
 
-        EditorGUILayout.LabelField("Battle HP: ", pkmn.battleHP.ToString());
+        EditorGUILayout.LabelField("Battle HP: ", pkmn.currentHP.ToString());
 
 
 
