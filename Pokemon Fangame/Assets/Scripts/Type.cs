@@ -12,11 +12,16 @@ public class Type : ScriptableObject {
     public float[] offensives = new float[18] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
     public float[] defensives = new float[18] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
+    //Used in the battle UI
+    public Sprite moveButtonDesel;
+    public Sprite moveButtonSel;
 
     //for the editor
     public bool[] offensiveSE = new bool[18];
     public bool[] offensiveNVE = new bool[18];
     public bool[] offensiveNE = new bool[18];
+
+    
 }
 
     /* INDEXES

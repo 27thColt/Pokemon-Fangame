@@ -13,6 +13,13 @@ public class Move : ScriptableObject {
     public int pp = 0;
     public Type type;
 
-    public bool physical = true;
-    public bool special = false;
+    public moveType hitType = moveType.PHYSICAL;
+
+    public Effect[] effects;
+}
+
+public enum moveType {
+    PHYSICAL,
+    SPECIAL,
+    STATUS
 }

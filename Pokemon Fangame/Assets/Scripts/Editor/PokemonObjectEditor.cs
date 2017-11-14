@@ -75,6 +75,7 @@ public class PokemonObjectEditor : Editor {
 
         pkmn.level = Mathf.RoundToInt(EditorGUILayout.Slider("Level: ", pkmn.level, 1, 100));
         pkmn.nat = (Nature)EditorGUILayout.ObjectField("Nature: ", pkmn.nat, typeof(Nature), false);
+        pkmn.currentEffect = (StatusEffect)EditorGUILayout.ObjectField("Status Effect: ", pkmn.currentEffect, typeof(StatusEffect), false);
 
         for (int i = 1, y = 0; i < pkmn.nat.statModifiers.Length; i++) {
             switch (i) {
@@ -230,10 +231,26 @@ public class PokemonObjectEditor : Editor {
 
         GUILayout.Space(5);
 
+        if (GUILayout.Button("Set PP")) {
+            for (int i = 0; i < pkmn.moves.Length; i++) {
+                if (pkmn.moves[i] != null) {
+                    pkmn.currentPP[i] = pkmn.moves[i].pp;
+                }
+            }
+        }
+
         pkmn.moves[0] = (Move)EditorGUILayout.ObjectField("Move 1: ", pkmn.moves[0], typeof(Move), false);
+        if (pkmn.moves[0] != null)
+            pkmn.currentPP[0] = EditorGUILayout.IntField("PP: ", pkmn.currentPP[0]);
         pkmn.moves[1] = (Move)EditorGUILayout.ObjectField("Move 2: ", pkmn.moves[1], typeof(Move), false);
+        if (pkmn.moves[1] != null)
+            pkmn.currentPP[1] = EditorGUILayout.IntField("PP: ", pkmn.currentPP[1]);
         pkmn.moves[2] = (Move)EditorGUILayout.ObjectField("Move 3: ", pkmn.moves[2], typeof(Move), false);
+        if (pkmn.moves[2] != null)
+            pkmn.currentPP[2] = EditorGUILayout.IntField("PP: ", pkmn.currentPP[2]);
         pkmn.moves[3] = (Move)EditorGUILayout.ObjectField("Move 4: ", pkmn.moves[3], typeof(Move), false);
+        if (pkmn.moves[3] != null)
+            pkmn.currentPP[3] = EditorGUILayout.IntField("PP: ", pkmn.currentPP[3]);
 
         GUILayout.Space(15);
 
@@ -243,7 +260,12 @@ public class PokemonObjectEditor : Editor {
 
 
 
-        EditorGUILayout.LabelField("Battle HP: ", pkmn.currentHP.ToString());
+        EditorGUILayout.LabelField("HP: ", pkmn.battleStats[0].ToString());
+        EditorGUILayout.LabelField("Attack: ", pkmn.battleStats[1].ToString());
+        EditorGUILayout.LabelField("Defense: ", pkmn.battleStats[2].ToString());
+        EditorGUILayout.LabelField("Sp. Attack: ", pkmn.battleStats[3].ToString());
+        EditorGUILayout.LabelField("Sp. Defense: ", pkmn.battleStats[4].ToString());
+        EditorGUILayout.LabelField("Speed: ", pkmn.battleStats[5].ToString());
 
 
 

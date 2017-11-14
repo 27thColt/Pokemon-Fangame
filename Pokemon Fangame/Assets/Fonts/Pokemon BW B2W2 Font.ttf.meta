@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 935e163edeafe0b4f9a355a0d1b688f3
+timeCreated: 1509256321
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pok?mon Black, White, Black 2 and White 2 Tex
+  fontNames:
+  - Pokemon BW B2W2 Font
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 2
+  ascentCalculationMode: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

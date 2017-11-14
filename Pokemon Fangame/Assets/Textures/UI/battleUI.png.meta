@@ -1,0 +1,763 @@
+fileFormatVersion: 2
+guid: 6d4167707388a86498e704c46347701e
+timeCreated: 1509598482
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: battleUI_NORMAL_deselected
+    21300002: battleUI_Normal_selected
+    21300004: battleUI_Bag_deselected
+    21300006: battleUI_GRASS_deselected
+    21300008: battleUI_Grass_selected
+    21300010: battleUI_Run_deselected
+    21300012: battleUI_FIRE_deselected
+    21300014: battleUI_Fire_selected
+    21300016: battleUI_Pokemon_deselected
+    21300018: battleUI_WATER_deselected
+    21300020: battleUI_Water_selected
+    21300022: battleUI_Bag_selected
+    21300024: battleUI_ELECTRIC_deselected
+    21300026: battleUI_Electric_selected
+    21300028: battleUI_Run_selected
+    21300030: battleUI_ICE_deselected
+    21300032: battleUI_Ice_selected
+    21300034: battleUI_Pokemon_selected
+    21300036: battleUI_BUG_deselected
+    21300038: battleUI_Bug_selected
+    21300040: battleUI_Blank_deselected
+    21300042: battleUI_POISON_deselected
+    21300044: battleUI_Poison_selected
+    21300046: battleUI_blank_selected
+    21300048: battleUI_FLYING_deselected
+    21300050: battleUI_Flying_selected
+    21300052: battleUI_FIGHTING_deselected
+    21300054: battleUI_Fighting_selected
+    21300056: battleUI_GROUND_deselected
+    21300058: battleUI_Ground_selected
+    21300060: battleUI_ROCK_deselected
+    21300062: battleUI_Rock_selected
+    21300064: battleUI_STEEL_deselected
+    21300066: battleUI_Steel_selected
+    21300068: battleUI_PSYCHIC_deselected
+    21300070: battleUI_Psychic_selected
+    21300072: battleUI_DARK_deselected
+    21300074: battleUI_Dark_selected
+    21300076: battleUI_GHOST_deselected
+    21300078: battleUI_Ghost_selected
+    21300080: battleUI_FAIRY_deselected
+    21300082: battleUI_Fairy_selected
+    21300084: battleUI_DRAGON_deselected
+    21300086: battleUI_Dragon_selected
+    21300088: battleUI_Normal_deselected
+    21300090: battleUI_Grass_deselected
+    21300092: battleUI_Fire_deselected
+    21300094: battleUI_Water_deselected
+    21300096: battleUI_Electric_deselected
+    21300098: battleUI_Ice_deselected
+    21300100: battleUI_Bug_deselected
+    21300102: battleUI_Poison_deselected
+    21300104: battleUI_Flying_deselected
+    21300106: battleUI_Fighting_deselected
+    21300108: battleUI_Grouind_deselected
+    21300110: battleUI_Rock_deselected
+    21300112: battleUI_Steel_deselected
+    21300114: battleUI_Psychic_deselected
+    21300116: battleUI_Dark_deselected
+    21300118: battleUI_Ghost_deselected
+    21300120: battleUI_Fairy_deselected
+    21300122: battleUI_Dragon_deselected
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: battleUI_Normal_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 562
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Normal_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 562
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Bag_deselected
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 562
+        width: 86
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Grass_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 529
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Grass_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 529
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Run_deselected
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 529
+        width: 86
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Fire_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 496
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Fire_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 496
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Pokemon_deselected
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 496
+        width: 86
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Water_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 463
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Water_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 463
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Bag_selected
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 463
+        width: 86
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Electric_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 430
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Electric_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 430
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Run_selected
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 430
+        width: 86
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Ice_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 397
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Ice_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 397
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Pokemon_selected
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 397
+        width: 86
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Bug_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 364
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Bug_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 364
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Blank_deselected
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 364
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Poison_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 331
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Poison_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 331
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_blank_selected
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 331
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Flying_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 298
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Flying_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 298
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Fighting_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 265
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Fighting_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 265
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Grouind_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 232
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Ground_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 232
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Rock_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 199
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Rock_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 199
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Steel_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 166
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Steel_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 166
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Psychic_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 133
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Psychic_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 133
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Dark_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 100
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Dark_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 100
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Ghost_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 67
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Ghost_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 67
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Fairy_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 34
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Fairy_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 34
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Dragon_deselected
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: battleUI_Dragon_selected
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1
+        width: 159
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

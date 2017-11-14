@@ -14,6 +14,9 @@ public class PokemonTypeEditor : Editor {
         type.typeName = EditorGUILayout.TextField("Name: ", type.typeName);
         type.index = EditorGUILayout.IntField("Index: ", type.index);
 
+        type.moveButtonDesel = (Sprite)EditorGUILayout.ObjectField("Move Button (Desel): ", type.moveButtonDesel, typeof(Sprite), false);
+        type.moveButtonSel = (Sprite)EditorGUILayout.ObjectField("Move Button (Sel): ", type.moveButtonSel, typeof(Sprite), false);
+
         GUILayout.Space(15);
         GUILayout.Label("Offensives", EditorStyles.boldLabel);
 
