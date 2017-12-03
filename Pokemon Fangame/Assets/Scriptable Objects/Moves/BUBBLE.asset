@@ -19,3 +19,7 @@ MonoBehaviour:
   type: {fileID: 11400000, guid: 9460932f13a32dd4393a7f31c0fc8ded, type: 2}
   hitType: 1
   effects: []
+  statChanges:
+  - chance: 0.1
+    statIndex: 5
+    increment: -1

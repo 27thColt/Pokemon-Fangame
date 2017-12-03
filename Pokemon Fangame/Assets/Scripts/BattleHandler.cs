@@ -24,50 +24,62 @@ public class BattleHandler : MonoBehaviour {
     public GameObject enemyMon;
 
     private PokemonObject po;
-    //private PlayermonHandler ph;
+    private PokemonObject eo;
 
-    private PokemonObject eo; 
+    private BattleUIHandler buih;
+    private DialogueHandler dh;
 
     public int poSelectedMove;
     public int eoSelectedMove;
 
     public battlePhase currentPhase;
 
-    int atkpoDmg; //Damage of player pokemon
-    int atkeoDmg; //Damage of enemy pokemon
+    public int turnNumber;
 
+    private int atkpoDmg; //Damage of player pokemon
+    private int atkeoDmg; //Damage of enemy pokemon
 
-    
+    private float probability;
+
+    private bool success;
+
     void Start() {
-        Debug.Log("Battle Phase: " + (int)currentPhase);
+        turnNumber = 1;
 
         po = playerMon.GetComponent<PokemonObject>();
-        //ph = playerMon.GetComponent<PlayermonHandler>();
 
         eo = enemyMon.GetComponent<PokemonObject>();
 
+        buih = FindObjectOfType<BattleUIHandler>();
+        dh = FindObjectOfType<DialogueHandler>();
 
         po.calculateStats();
         eo.calculateStats();
 
         Debug.Log("Battle Phase: " + (int)currentPhase);
+        Debug.Log("Turn: " + turnNumber);
     }
 
     void Update() {
         if (currentPhase == battlePhase.ATKEXECUTION) {
-            atkpoDmg = calculateDamage(po, eo, poSelectedMove); 
-            atkeoDmg = calculateDamage(eo, po, eoSelectedMove);
+            atkpoDmg = CalculateDamage(po, eo, poSelectedMove); 
+            atkeoDmg = CalculateDamage(eo, po, eoSelectedMove);
             Debug.Log("Player Damage: " + atkpoDmg);
             Debug.Log("Enemy Damage: " + atkeoDmg);
 
             StartCoroutine(executeTurn());
 
-            currentPhase = battlePhase.PLAYER_ATKSELECTION;
+            turnNumber++;
+
+            Debug.Log("Turn: " + turnNumber);
+
+            buih.encounterMessage.index = 0;
+            currentPhase = battlePhase.START_PHASE;
         }
     }
 
     //Move execution, atk - attacking pokemon; def - defending pokemon; selectedMove - the chosen move of the attacking pokemon
-    public int calculateDamage(PokemonObject atk, PokemonObject def, int selectedMove) {
+    public int CalculateDamage(PokemonObject atk, PokemonObject def, int selectedMove) {
         int damage; //total damage done
         float dmgModifier = 1; //damage modifier (type effectiveness, STAB, Item modifiers, etc.)
 
@@ -114,7 +126,7 @@ public class BattleHandler : MonoBehaviour {
 
     }
 
-    private IEnumerator decreaseHP(int damage, PokemonObject def) {
+    private IEnumerator DecreaseHP(int damage, PokemonObject def) {
         int x = (int)def.battleStats[0];
         while (true) {
             def.battleStats[0]--;
@@ -126,48 +138,155 @@ public class BattleHandler : MonoBehaviour {
         }
     }
 
-    public float r;
-    private IEnumerator executeMove(Move move, int damage, PokemonObject def) {
-        yield return StartCoroutine(decreaseHP(damage, def));
-    
-        yield return new WaitForSeconds(0.2f);
-        
-        if (move.effects.Length != 0) {
-            foreach (Effect effect in move.effects) {
-                r = Random.Range(0, 10);
-                Debug.Log(r);
-                if (r < effect.chance) {
-                    def.currentEffect = effect.givenEffect;
+    private float r; //for status effects & stat changes
+    private int n; //for stat change dialogues
+    private string n2;
+    private IEnumerator ExecuteMove(Move move, int damage, PokemonObject def, PokemonObject atk) {
 
-                    switch (def.currentEffect.index) {
-                        case 0:
-                            break;
 
-                        //PARALYSIS
-                        case 1:
-                            Mathf.RoundToInt(def.battleStats[5] = def.battleStats[5] / 2);
-                            break;
+        //Accuracy
+        probability = move.accuracy;
+        if (Random.Range(0, 1.01f) <= probability) {
+            //Status Effects
+            if (atk.currentEffect != null) {
+                switch (atk.currentEffect.index) {
+                    //PARALYSIS
+                    case 1:
+                        if (Random.Range(0, 1.01f) < 0.25f) {
+                            success = false;
+                            Debug.Log(atk.name + " is fully paralyzed!");
+                        }
+
+                        break;
+                    default:
+                        success = true;
+                        break;
+                }
+            } else {
+                success = true;
+            }
+
+        } else {
+            success = false;
+            Debug.Log(atk.name + "'s attacked missed!");
+        }
+
+
+
+
+
+
+
+
+
+        if (success) {
+            yield return StartCoroutine(DecreaseHP(damage, def));
+
+            yield return new WaitForSeconds(0.2f);
+
+            //Status Effects
+            if (move.effects.Length != 0) {
+                foreach (Effect effect in move.effects) {
+                    r = Random.Range(0, 1.01f);
+
+                    if (r <= effect.chance) {
+                        def.currentEffect = effect.givenEffect;
+
+                        switch (def.currentEffect.index) {
+                            case 0:
+                                break;
+
+                            //PARALYSIS
+                            case 1:
+                                Mathf.RoundToInt(def.battleStats[5] = def.battleStats[5] / 2);
+                                break;
+                        }
                     }
                 }
             }
-        }
+
+            //Stat Changes
+            if (move.statChanges.Length != 0) {
+                foreach (StatChange change in move.statChanges) {
+                    r = Random.Range(0, 1.01f);
+
+                    if (r <= change.chance) {
+
+                        switch(change.increment) {
+                            case -3:
+                                n = 5;
+                                break;
+                            case -2:
+                                n = 4;
+                                break;
+                            case -1:
+                                n = 3;
+                                break;
+                            case 1:
+                                n = 0;
+                                break;
+                            case 2:
+                                n = 1;
+                                break;
+                            case 3:
+                                n = 2;
+                                break;
+                        }
+
+                        switch(change.statIndex) {
+                            case 1:
+                                n2 = "attack";
+                                break;
+                            case 2:
+                                n2 = "defense";
+                                break;
+                            case 3:
+                                n2 = "special attack";
+                                break;
+                            case 4:
+                                n2 = "special defense";
+                                break;
+                            case 5:
+                                n2 = "speed";
+                                break;
+                        }
+
+
+                        dh.StartDialogue(buih.statChange[n], true, new string[] { def.species.pokemonName, n2 });
+                        def.statBattleModif[change.statIndex] += change.increment;
+                        def.recalculateBattleStat(change.statIndex);
+                        
+                    }
+                }
+            }
+        } else {
+
+        } 
     }
 
     //The cycle of each turn in the battle
     private IEnumerator executeTurn() {
         //If the player is faster than the enemy
         if (po.battleStats[5] > eo.battleStats[5]) {
-            yield return StartCoroutine(executeMove(po.moves[poSelectedMove], atkpoDmg, eo));
+            dh.StartDialogue(buih.attackMessage, true, new string[] { po.species.name, po.moves[poSelectedMove].name });
+            yield return StartCoroutine(ExecuteMove(po.moves[poSelectedMove], atkpoDmg, eo, po));
+
             yield return new WaitForSeconds(0.3f);
-            yield return StartCoroutine(executeMove(eo.moves[eoSelectedMove], atkeoDmg, po));
+
+            dh.StartDialogue(buih.attackMessage, true, new string[] { eo.species.name, eo.moves[eoSelectedMove].name });
+            yield return StartCoroutine(ExecuteMove(eo.moves[eoSelectedMove], atkeoDmg, po, eo));
 
             yield return new WaitForSeconds(0.3f);
 
             //If the enemy is faster than the player
         } else if (po.battleStats[5] < eo.battleStats[5]) {
-            yield return StartCoroutine(executeMove(eo.moves[eoSelectedMove], atkeoDmg, po));
+            dh.StartDialogue(buih.attackMessage, true, new string[] { eo.species.name, eo.moves[eoSelectedMove].name });
+            yield return StartCoroutine(ExecuteMove(eo.moves[eoSelectedMove], atkeoDmg, po, eo));
+
             yield return new WaitForSeconds(0.5f);
-            yield return StartCoroutine(executeMove(po.moves[poSelectedMove], atkpoDmg, eo));
+
+            dh.StartDialogue(buih.attackMessage, true, new string[] { po.species.name, po.moves[poSelectedMove].name });
+            yield return StartCoroutine(ExecuteMove(po.moves[poSelectedMove], atkpoDmg, eo, po));
 
             yield return new WaitForSeconds(0.3f);
 
@@ -176,17 +295,25 @@ public class BattleHandler : MonoBehaviour {
         } else if (po.battleStats[5] == eo.battleStats[5]) {
             //50% of either pokemon going first
             if (Random.Range(1, 11) > 5) {
-                yield return StartCoroutine(executeMove(po.moves[poSelectedMove], atkpoDmg, eo));
+                dh.StartDialogue(buih.attackMessage, true, new string[] { po.species.name, po.moves[poSelectedMove].name });
+                yield return StartCoroutine(ExecuteMove(po.moves[poSelectedMove], atkpoDmg, eo, po));
+
                 yield return new WaitForSeconds(0.3f);
-                yield return StartCoroutine(executeMove(eo.moves[eoSelectedMove], atkeoDmg, po));
+
+                dh.StartDialogue(buih.attackMessage, true, new string[] { eo.species.name, eo.moves[eoSelectedMove].name });
+                yield return StartCoroutine(ExecuteMove(eo.moves[eoSelectedMove], atkeoDmg, po, eo));
 
                 yield return new WaitForSeconds(0.3f);
 
                 
             } else {
-                yield return StartCoroutine(executeMove(eo.moves[eoSelectedMove], atkeoDmg, po));
+                dh.StartDialogue(buih.attackMessage, true, new string[] { eo.species.name, eo.moves[eoSelectedMove].name });
+                yield return StartCoroutine(ExecuteMove(eo.moves[eoSelectedMove], atkeoDmg, po, eo));
+
                 yield return new WaitForSeconds(0.3f);
-                yield return StartCoroutine(executeMove(po.moves[poSelectedMove], atkpoDmg, eo));
+
+                dh.StartDialogue(buih.attackMessage, true, new string[] { po.species.name, po.moves[poSelectedMove].name });
+                yield return StartCoroutine(ExecuteMove(po.moves[poSelectedMove], atkpoDmg, eo, po));
 
                 yield return new WaitForSeconds(0.3f);
 
@@ -197,6 +324,7 @@ public class BattleHandler : MonoBehaviour {
 }
 
 public enum battlePhase {
+    START_PHASE,
     PLAYER_ATKSELECTION,
     ENEMY_ATKSELECTION,
     ATKEXECUTION

@@ -12,9 +12,7 @@ public class PlayermonHandler : MonoBehaviour {
     private PokemonObject po;
 
     public GameObject enemyMon;
-    //private PokemonObject eo;
 
-    public GameObject battleObject;
     private BattleHandler bh;
 
     public Text displayName, displayNameShadow;
@@ -28,7 +26,7 @@ public class PlayermonHandler : MonoBehaviour {
     void Start () {
         po = gameObject.GetComponent<PokemonObject>();
 
-        bh = battleObject.GetComponent<BattleHandler>();
+        bh = FindObjectOfType<BattleHandler>();
 
         foreach (Transform child in transform) {
             if (child.tag == "Pokemon Sprite") {
@@ -40,8 +38,7 @@ public class PlayermonHandler : MonoBehaviour {
          * UI
          */
 
-        
-
+      
         //Text Business
         displayName.text = po.species.pokemonName;
         displayNameShadow.text = po.species.pokemonName;
@@ -87,8 +84,10 @@ public class PlayermonHandler : MonoBehaviour {
     }
 
     public void selectMove(int moveNum) {
-        bh.poSelectedMove = moveNum;
-        bh.currentPhase = battlePhase.ENEMY_ATKSELECTION;
-        Debug.Log("Battle Phase: " + (int)bh.currentPhase);
+        if (GetComponent<PokemonObject>().moves[moveNum] != null) {
+            bh.poSelectedMove = moveNum;
+            bh.currentPhase = battlePhase.ENEMY_ATKSELECTION;
+            Debug.Log("Battle Phase: " + (int)bh.currentPhase);
+        }
     }
 }

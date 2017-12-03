@@ -12,9 +12,7 @@ public class EnemymonHandler : MonoBehaviour {
     private PokemonObject eo;
 
     public GameObject playerMon;
-    //private PokemonObject po;
 
-    public GameObject battleObject;
     private BattleHandler bh;
 
     public Text displayName, displayNameShadow;
@@ -27,9 +25,8 @@ public class EnemymonHandler : MonoBehaviour {
 
     void Start() {
         eo = gameObject.GetComponent<PokemonObject>();
-        //po = playerMon.GetComponent<PokemonObject>();
 
-        bh = battleObject.GetComponent<BattleHandler>();
+        bh = FindObjectOfType<BattleHandler>();
 
         foreach (Transform child in transform) {
             if (child.tag == "Pokemon Sprite") {

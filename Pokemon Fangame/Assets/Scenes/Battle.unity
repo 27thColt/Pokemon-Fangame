@@ -1294,7 +1294,7 @@ Transform:
   m_Children:
   - {fileID: 1565042604}
   m_Father: {fileID: 505866272}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &399137971
 MonoBehaviour:
@@ -1325,6 +1325,7 @@ MonoBehaviour:
   - 118
   - 86
   - 188
+  statBattleModif: 000000000000000000000000000000000000000000000000
   level: 81
   currentEffect: {fileID: 0}
   moves:
@@ -1345,7 +1346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMon: {fileID: 1716606616}
-  battleObject: {fileID: 505866271}
   displayName: {fileID: 466357328}
   displayNameShadow: {fileID: 31408357}
   displayCurrentHP: {fileID: 2128426714}
@@ -1530,6 +1530,7 @@ Transform:
   m_LocalPosition: {x: -17.1, y: 1.52, z: -0.05786542}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 795933155}
   - {fileID: 1575598912}
   - {fileID: 1716606617}
   - {fileID: 399137970}
@@ -1552,6 +1553,7 @@ MonoBehaviour:
   poSelectedMove: 0
   eoSelectedMove: 0
   currentPhase: 0
+  turnNumber: 0
   r: 0
 --- !u!1 &541912972
 GameObject:
@@ -1835,7 +1837,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 2
   m_Text: 'What will Pikachu do next?
 
 '
@@ -2067,6 +2069,79 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 731534347}
+--- !u!1 &795933154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 795933155}
+  - component: {fileID: 795933156}
+  m_Layer: 0
+  m_Name: battle-bg_grass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795933155
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 795933154}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.334, y: -0.063, z: 0.05786542}
+  m_LocalScale: {x: 2.604568, y: 2.604568, z: 2.604568}
+  m_Children: []
+  m_Father: {fileID: 505866272}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &795933156
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 795933154}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10
+  m_Sprite: {fileID: 21300000, guid: 3563146d7ff46d74aab3e2ec55450f6a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.58, y: 1.18}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &846722169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,7 +3130,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 2
   m_Text: 'What will Pikachu do next?
 
 '
@@ -3224,6 +3299,7 @@ GameObject:
   - component: {fileID: 1492288741}
   - component: {fileID: 1492288740}
   - component: {fileID: 1492288743}
+  - component: {fileID: 1492288744}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3293,6 +3369,69 @@ MonoBehaviour:
   - {fileID: 12800000, guid: e8aec481eadf64441b8b2b45debcd119, type: 3}
   - {fileID: 12800000, guid: 7c406e513248b464b9d6eb6a8f867080, type: 3}
   - {fileID: 12800000, guid: 15d4bf0c30962f441850921e188299e2, type: 3}
+--- !u!114 &1492288744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1492288739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_TextComponent: {fileID: 0}
+  m_Placeholder: {fileID: 0}
+  m_ContentType: 0
+  m_InputType: 0
+  m_AsteriskChar: 42
+  m_KeyboardType: 0
+  m_LineType: 0
+  m_HideMobileInput: 0
+  m_CharacterValidation: 0
+  m_CharacterLimit: 0
+  m_OnEndEdit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_CustomCaretColor: 0
+  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_Text: 
+  m_CaretBlinkRate: 0.85
+  m_CaretWidth: 1
+  m_ReadOnly: 0
 --- !u!1 &1520738339
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,7 +3830,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 8}
   m_Children: []
   m_Father: {fileID: 505866272}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1607876994
 GameObject:
@@ -3870,7 +4009,7 @@ Transform:
   m_Children:
   - {fileID: 1339823286}
   m_Father: {fileID: 505866272}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1716606618
 MonoBehaviour:
@@ -3901,6 +4040,7 @@ MonoBehaviour:
   - 147
   - 176
   - 91
+  statBattleModif: 000000000000000000000000000000000000000000000000
   level: 100
   currentEffect: {fileID: 0}
   moves:
@@ -3921,7 +4061,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMon: {fileID: 399137969}
-  battleObject: {fileID: 505866271}
   displayName: {fileID: 716638645}
   displayNameShadow: {fileID: 13268485}
   displayLevel: {fileID: 122262530}
@@ -4069,8 +4208,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862156650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 495, y: 278.5, z: 0}
-  m_LocalScale: {x: 1.2375, y: 1.2375, z: 1.2375}
+  m_LocalPosition: {x: 494.5, y: 278, z: 0}
+  m_LocalScale: {x: 1.23625, y: 1.23625, z: 1.23625}
   m_Children:
   - {fileID: 1788229728}
   - {fileID: 2075547356}
@@ -4093,7 +4232,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862156650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4155,19 +4294,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0124f17560ebf47b10032fbaf3e23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveB1: {fileID: 1555415649}
-  moveB2: {fileID: 1520738339}
-  moveB3: {fileID: 164465071}
-  moveB4: {fileID: 1272381342}
+  moveButtons:
+  - {fileID: 1555415649}
+  - {fileID: 1520738339}
+  - {fileID: 164465071}
+  - {fileID: 1272381342}
   move1XYZ: {x: -163.5, y: -179.2, z: 0}
   move2XYZ: {x: 158, y: -179.2, z: 0}
   move3XYZ: {x: 479.2, y: -179.2, z: 0}
   move4XYZ: {x: -484.7, y: -179.2, z: 0}
   pokemonObject: {fileID: 399137969}
-  battleHandler: {fileID: 505866271}
+  enemyObject: {fileID: 1716606616}
   moveNullDesel: {fileID: 21300040, guid: 6d4167707388a86498e704c46347701e, type: 3}
   moveNullSel: {fileID: 21300046, guid: 6d4167707388a86498e704c46347701e, type: 3}
   moveSel: 0
+  encounterMessage:
+    message:
+    - A wild % appeared!
+    - What will % do?
+    index: 0
+  attackMessage:
+    message:
+    - '% used %!'
+    index: 0
+  statChange:
+  - message:
+    - '%''s % rose!'
+    index: 0
+  - message:
+    - '%''s % sharply rose!'
+    index: 0
+  - message:
+    - '%''s % rose drastically!'
+    index: 0
+  - message:
+    - '%''s % fell!'
+    index: 0
+  - message:
+    - '%''s % harshly fell!'
+    index: 0
+  - message:
+    - '%''s % severly fell!'
+    index: 0
 --- !u!1 &1923005816
 GameObject:
   m_ObjectHideFlags: 0
@@ -4178,6 +4346,7 @@ GameObject:
   - component: {fileID: 1923005817}
   - component: {fileID: 1923005819}
   - component: {fileID: 1923005818}
+  - component: {fileID: 1923005820}
   m_Layer: 5
   m_Name: Textbox
   m_TagString: Untagged
@@ -4238,6 +4407,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923005816}
+--- !u!114 &1923005820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923005816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ce7f02cbdc44440b9c2b48db76a6a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1415268328}
+  textShadow: {fileID: 634210280}
+  textOn: 0
 --- !u!1 &2073643295
 GameObject:
   m_ObjectHideFlags: 0

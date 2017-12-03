@@ -16,6 +16,8 @@ public class Move : ScriptableObject {
     public moveType hitType = moveType.PHYSICAL;
 
     public Effect[] effects;
+
+    public StatChange[] statChanges;
 }
 
 public enum moveType {

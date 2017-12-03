@@ -18,20 +18,13 @@ public class PokemonObject : MonoBehaviour {
 
     //Changing Values
     public float[] battleStats = new float[6] { 0, 0, 0, 0, 0, 0 }; //Used in-battle and changed temporarily
+    public int[] statBattleModif = new int[6] { 0, 0, 0, 0, 0, 0 };
     public int level = 1;
     public StatusEffect currentEffect;
 
     public Move[] moves = new Move[4];
 
     public int[] currentPP = new int[4];
-
-    void Start () {
-        
-    }
-
-    void Update() {
-
-    }
 
     public void calculateStats() {
         for (int i = 0; i < statCalc.Length; i++) {
@@ -44,5 +37,19 @@ public class PokemonObject : MonoBehaviour {
                 battleStats[i] = (int)statCalc[i];
             }
         }
+    }
+
+    public void recalculateBattleStat(int stat) {
+        float x = 0;
+
+        if (statBattleModif[stat] >= 0) {
+            x = (2 + (float)statBattleModif[stat]) / 2;
+        } else if (statBattleModif[stat] < 0) {
+            x = 2 / (2 + Mathf.Abs((float)statBattleModif[stat]));
+        }
+
+        battleStats[stat] = Mathf.RoundToInt(((((2 * species.statsBase[stat] + statsIV[stat] + (statsEV[stat] / 4)) * level) / 100) + 5) * nat.statModifiers[stat]);
+        battleStats[stat] *= x;
+        Mathf.RoundToInt(battleStats[stat]);
     }
 }
